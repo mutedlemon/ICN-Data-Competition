@@ -1,0 +1,51 @@
+---
+title: "p-median"
+output: html_document
+date: '2022-07-13'
+---
+
+## 1. 
+```{r}
+library(ggmap)
+library(geosphere)
+library(dplyr)
+library(tbart)
+library(sp)
+
+datame=read.csv("datame_1.csv")
+datame$wei=datame$X500m충전소 + datame$주민등록세대 + datame$전기차등록수 + datame$X500m생활근린시설
+colnames(datame)[c(1,2)]=c('lat', 'lng')
+coordinates(datame)<- ~lng+lat
+eucdist=euc.dists(datame, datame)
+dist=matrix(0, 157, 157)
+
+for(i in 1:157){
+  dist[i,]=datame$wei[i]*eucdist[i,]
+}
+allocations(datame, metric = dist, p=5, verbose = T) -> result_t
+```
+
+```{r}
+#p를 고르자
+score<-c()
+for (i in 1:20){ans<-allocations(datame,metric=dist,p=i,verbose=T)
+ans_unique <- unique(ans$allocation)
+score[i]<- sum(ans$allocdist)}
+options(scipen=999) #이거 한번 입력해주면 숫자 포멧 해결
+plot(score,type='b',main='Weighted distance versus P-values',xlab="p")
+
+#시각화
+plot(result_t,border='grey')
+shading.result_t=auto.shading(result_t$allocdist,n=6)
+shading.result_t$cols=add.alpha(brewer.pal(6,"Blues"),0.7)
+choropleth(result_t,v=result_t$allocdist,add=T,shading = shading.result_t)
+choro.legend(-78.4,43,sh=shading.result_t,title="distance/feet",cex = 0.85)
+plot(star.diagram(result_t),col='red',lwd=1,add=TRUE)
+points(point,col="yellow",pch=10)
+legend(-78.4,43.1,legend="fixed clinics",pch = 10,col="yellow")
+
+print('P-median 입지선정 결과')
+idx[unique(result_t$allocation),3]
+result_t$lat[unique(result_t$allocation)]
+result_t$lng[unique(result_t$allocation)]
+```

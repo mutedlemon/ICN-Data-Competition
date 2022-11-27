@@ -1,0 +1,24 @@
+---
+title: "scaler"
+output: html_document
+date: "2022-07-24"
+---
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(stringr)
+nlim <- read.csv("no_lim_final_final.csv", fileEncoding = 'cp949')
+```
+
+## scaling
+```{r sc}
+nor_minmax = function(x){
+  result = (x - min(x)) / (max(x) - min(x))
+  return(result)
+}
+
+nlim$pop <- nor_minmax(nlim$pop)
+
+write.csv(nlim, "no_lim_scaled.csv", fileEncoding = 'cp949')
+```
+

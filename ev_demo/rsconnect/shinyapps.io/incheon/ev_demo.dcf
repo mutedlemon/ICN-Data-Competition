@@ -1,0 +1,11 @@
+name: ev_demo
+title:
+username:
+account: incheon
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7738981
+bundleId: 6558518
+url: https://incheon.shinyapps.io/ev_demo/
+when: 1669523498.46366
+lastSyncTime: 1669523498.4637
