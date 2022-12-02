@@ -8,6 +8,9 @@
 ## 프로젝트 소개
  사용자로부터 총 4개의 매개변수(반경 500m 전기차 충전소 개수, 세대수, 전기차 등록수, 반경 500m 주차장 주변 건물수)와 각각의 가중치를 받아, 사용자의 의사결정을 반영할 수 있는 전기차 충전소 입지선정 플랫폼입니다.
 
+## Contributor
+* [한지원](https://github.com/mutedlemon)
+
 ### 사용한 입지선정 알고리즘
 * P-median
 * MCLP(Maximal Covering Location Problem)
@@ -23,5 +26,3 @@
 
 자세한 분석 과정은 [여기](https://github.com/mutedlemon/ICN_data_competition/blob/main/%EC%9D%B8%EC%B2%9C_%EC%A0%84%EA%B8%B0%EC%B0%A8_%EC%9E%85%EC%A7%80%EC%84%A0%EC%A0%95_%ED%94%8C%EB%9E%AB%ED%8F%BC.pdf) 에 서술되어 있습니다. 
 
-## Contact
-* Email: jiwon.h@g.skku.edu
