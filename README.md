@@ -1,5 +1,6 @@
 # 인천광역시 전기차 충전소 입지선정 Platform
- 2022 인천광역시 공공데이터 활용 창업/분석 경진대회에서 우수상을 받은 프로젝트입니다. 
+* 2022 인천광역시 공공데이터 활용 창업/분석 경진대회에서 우수상(인하대학교 총장상)을 받은 프로젝트입니다. 
+* 대회 링크: https://www.incheon.go.kr/IC010101/view?nttNo=2041459
  
 ## Platform 
 [인천광역시 전기차 충전소 입지선정 Platform](https://incheon.shinyapps.io/ev_demo/)
